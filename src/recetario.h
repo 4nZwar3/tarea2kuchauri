@@ -1,6 +1,6 @@
-#include <iostream>
+#ifndef RECETARIO_H
+#define RECETARIO_H
 #include "receta.h"
-using namespace std;
 enum Menu {
     SALIR,
     AGREGAR_RECETA,
@@ -17,3 +17,4 @@ class Recetario {
         Receta recetas[MAX];
         int cont_recetas;
 };
+#endif

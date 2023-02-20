@@ -1,42 +1,43 @@
 #include "receta.h"
 #include "ingrediente.h"
+#include <iostream>
 void Receta::agregar_receta() {
-	cout << "\t---Agregar receta---\n"
+	std::cout << "\t---Agregar receta---\n"
 		 << "Inserte el nombre de su receta: ";
-	cin >> nombre;
-	cin.ignore();
+	std::cin >> nombre;
+	std::cin.ignore();
 	menu_ingredientes();
 }
 void Receta::mostrar_receta() {
-	cout << "\nNombre: " << nombre
+	std::cout << "\nNombre: " << nombre
 	     << "\nIngredientes:\n";
 	for(int j(0); j < contador; ++j) {
-		cout << "> ";
+		std::cout << "> ";
 		switch (ingredientes[j].tipoDeUnidad()) {
 			case U_GRAMO:
-				cout << ingredientes[j].printGramos() << " gramos";
+				std::cout << ingredientes[j].printGramos() << " gramos";
 				break;
 			case U_KILO:
-				cout << ingredientes[j].printKilos() << " kilos";
+				std::cout << ingredientes[j].printKilos() << " kilos";
 				break;
 			case U_MILILITRO:
-	            cout << ingredientes[j].printMililitros() << " milimetros";
+	            std::cout << ingredientes[j].printMililitros() << " milimetros";
 	            break;
 	  		case U_LITRO:
-	 			cout << ingredientes[j].printLitros() << " litros";
+	 			std::cout << ingredientes[j].printLitros() << " litros";
 				break;
 		}
-		cout << " de " << ingredientes[j].printNombre() << endl;
+		std::cout << " de " << ingredientes[j].printNombre() << std::endl;
 	}
-	cout << "Pasos:\n";
+	std::cout << "Pasos:\n";
 	for(int j(0); j < contadorPasos; ++j) {
-		cout << "> " << pasos[j] << endl;
+		std::cout << "> " << pasos[j] << std::endl;
 	}
 }
 void Receta::menu_ingredientes() {
     int opc;
     do {
-        cout << "\t--Ingredientes--\n"
+        std::cout << "\t--Ingredientes--\n"
              << OPC_REGISTRAR << ") Agregar ingrediente\n"
              << OPC_CONSULTAR << ") Consultar ingredientes\n"
              << OPC_BUSCAR << ") Buscar ingrediente\n"
@@ -44,8 +45,8 @@ void Receta::menu_ingredientes() {
              << OPC_CONSULTAR_PASO << ") Conultar pasos\n"
              << OPC_SALIR << ") Salir\n"
              << SELECT;
-        cin >> opc;
-        cin.ignore();
+        std::cin >> opc;
+        std::cin.ignore();
 
         switch (opc) {
         	case OPC_REGISTRAR:
@@ -54,7 +55,7 @@ void Receta::menu_ingredientes() {
                 	++contador;
             	}
             	else {
-                	cout << "No hay más espacios disponibles" << endl;
+                	std::cout << "No hay más espacios disponibles" << std::endl;
             	}
             	break;
         	case OPC_CONSULTAR:
@@ -62,7 +63,7 @@ void Receta::menu_ingredientes() {
                 	mostrarIngredientes();
             	}
             	else {
-                	cout << "No hay ingredientes registrados" << endl;
+                	std::cout << "No hay ingredientes registrados" << std::endl;
             	}
             	break;
         	case OPC_BUSCAR:
@@ -70,42 +71,42 @@ void Receta::menu_ingredientes() {
                 	buscarIngrediente();
             	}
             	else {
-                	cout << "No hay ingredientes registrados" << endl;
+                	std::cout << "No hay ingredientes registrados" << std::endl;
             	}
             	break;
         	case OPC_SALIR:
-            	cout << "Regresando al menu anterior" << endl;
+            	std::cout << "Regresando al menu anterior" << std::endl;
             	break;
             case OPC_REGISTRAR_PASO:
-            	cout << "Inserte paso: ";
-            	cin >> pasos[contadorPasos];
-            	cin.ignore();
+            	std::cout << "Inserte paso: ";
+            	std::cin >> pasos[contadorPasos];
+            	std::cin.ignore();
             	++contadorPasos;
             	break;
             case OPC_CONSULTAR_PASO:
             	for(int j(0); j < contadorPasos; ++j) {
-            		cout << " > " << pasos[j] << endl;
+            		std::cout << " > " << pasos[j] << std::endl;
             	}
             	break;
         	default:
-            	cout << "Opción no válida..." << endl;
+            	std::cout << "Opción no válida..." << std::endl;
             	break;
         }
     }
     while(opc != OPC_SALIR);
 }
 void Receta::mostrarIngredientes() {
-    cout << "\t--Consultar Ingredientes--" << endl;
+    std::cout << "\t--Consultar Ingredientes--" << std::endl;
     for (int i(0); i < contador; ++i) {
         ingredientes[i].consultarIngrediente();
     }
 }
 void Receta::buscarIngrediente() {
-    string patron;
+    std::string patron;
     int cont(0);
-    cout << "\t--Buscar Ingrediente\t--\n"
+    std::cout << "\t--Buscar Ingrediente\t--\n"
         << "Nombre: ";
-    getline(cin, patron);
+    getline(std::cin, patron);
     for (int i(0); i < contador; ++i) {
         /*
          *  patron: ez
@@ -119,8 +120,8 @@ void Receta::buscarIngrediente() {
             ++cont;
         }
     }
-    cout << "Se encontraron " << cont << " ingredientes" << endl;
+    std::cout << "Se encontraron " << cont << " ingredientes" << std::endl;
 }
-string Receta::printNombre() {
+std::string Receta::printNombre() {
     return nombre;
 }

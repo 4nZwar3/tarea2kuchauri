@@ -1,7 +1,6 @@
 #ifndef INGREDIENTE_H
 #define INGREDIENTE_H
-#include <iostream>
-using namespace std;
+#include <string>
 const char SELECT[]("Selecciona una opción: ");
 union Unidad { //Unidad de medida para un ingrediente
     int gramos;
@@ -25,9 +24,9 @@ class Ingrediente {
         float printKilos();
         int printMililitros();
         float printLitros();
-        string printNombre();
+        std::string printNombre();
     private:
-        string nombre;
+        std::string nombre;
         Unidad cantidad;
         int tipoUnidad;
 };

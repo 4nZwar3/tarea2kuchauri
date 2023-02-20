@@ -1,8 +1,6 @@
 #ifndef RECETA_H
 #define RECETA_H
 #include "ingrediente.h"
-#include <iostream>
-using namespace std;
 const int MAX_INGREDIENTES(10);
 const int MAX(30);
 enum Opciones {
@@ -22,12 +20,12 @@ class Receta {
         void menu_ingredientes();
         void mostrarIngredientes();
         void buscarIngrediente();
-        string printNombre();
+        std::string printNombre();
     private:
-        string nombre;
+        std::string nombre;
         Ingrediente ingredientes[MAX_INGREDIENTES];
         int contador;
         int contadorPasos;
-        string pasos[MAX];
+        std::string pasos[MAX];
 };
 #endif

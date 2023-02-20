@@ -1,56 +1,57 @@
 #include "ingrediente.h"
+#include <iostream>
 Ingrediente::Ingrediente() {
 }
 void Ingrediente::registrarIngrediente() {
-    cout << "\t-Registrar Ingrediente-\n"
+    std::cout << "\t-Registrar Ingrediente-\n"
          << "Nombre: ";
-    getline(cin, nombre);
+    getline(std::cin, nombre);
     do {
-        cout << "En qué unidad se registrará el ingrediente?\n"
+        std::cout << "En qué unidad se registrará el ingrediente?\n"
              << U_GRAMO << ") Gramos\n"
              << U_KILO << ") Kilos\n"
              << U_MILILITRO << ") Mililitro\n"
              << U_LITRO << ") Litro\n"
              << SELECT;
-        cin >> tipoUnidad;
+        std::cin >> tipoUnidad;
     }
     while(tipoUnidad < U_GRAMO || tipoUnidad > U_LITRO);
     switch (tipoUnidad) {
     	case U_GRAMO:
-        	cout << "Gramos: ";
-        	cin >> cantidad.gramos;
+        	std::cout << "Gramos: ";
+        	std::cin >> cantidad.gramos;
         	break;
     	case U_KILO:
-        	cout << "Kilos: ";
-        	cin >> cantidad.kilos;
+        	std::cout << "Kilos: ";
+        	std::cin >> cantidad.kilos;
         	break;
     	case U_MILILITRO:
-        	cout << "Mililitros: ";
-        	cin >> cantidad.mililitros;
+        	std::cout << "Mililitros: ";
+        	std::cin >> cantidad.mililitros;
         	break;
     	case U_LITRO:
-        	cout << "Litros: ";
-        	cin >> cantidad.litros;
+        	std::cout << "Litros: ";
+        	std::cin >> cantidad.litros;
         	break;
     	default:
         	break;
     }
 }
 void Ingrediente::consultarIngrediente() {
-    cout << "Nombre: " << nombre << endl
+    std::cout << "Nombre: " << nombre << std::endl
          << "Cantidad: ";
     switch (tipoUnidad) {
     	case U_GRAMO:
-        	cout << cantidad.gramos << " gramos" << endl;
+        	std::cout << cantidad.gramos << " gramos" << std::endl;
         	break;
     	case U_KILO:
-        	cout << cantidad.kilos << " kilos" << endl;
+        	std::cout << cantidad.kilos << " kilos" << std::endl;
         	break;
     	case U_MILILITRO:
-        	cout << cantidad.mililitros << " mililitros" << endl;
+        	std::cout << cantidad.mililitros << " mililitros" << std::endl;
         	break;
     	case U_LITRO:
-        	cout << cantidad.litros << " litros" << endl;
+        	std::cout << cantidad.litros << " litros" << std::endl;
         	break;
     	default:
         	break;
@@ -71,6 +72,6 @@ int Ingrediente::printMililitros() {
 float Ingrediente::printLitros() {
     return cantidad.litros;
 }
-string Ingrediente::printNombre() {
+std::string Ingrediente::printNombre() {
     return nombre;
 }

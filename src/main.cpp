@@ -1,5 +1,4 @@
 #include "recetario.h"
-
 int main() {
     Recetario recetario;
     recetario.menu();
