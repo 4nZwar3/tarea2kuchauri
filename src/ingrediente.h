@@ -10,7 +10,7 @@ union Unidad { //Unidad de medida para un ingrediente
     float litros;
 };
 enum TipoUnidad {
-    U_GRAMO,
+    U_GRAMO = 1,
     U_KILO,
     U_MILILITRO,
     U_LITRO

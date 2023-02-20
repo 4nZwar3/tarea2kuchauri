@@ -29,6 +29,5 @@ class Receta {
         int contador;
         int contadorPasos;
         string pasos[MAX];
-
 };
 #endif

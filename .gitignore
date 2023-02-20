@@ -1,2 +1,6 @@
-/Makefile
 /obj/
+/ingrediente.d
+/main.d
+/receta.d
+/recetario.d
+/tarea2
